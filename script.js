@@ -15,3 +15,5 @@ Film.prototype.info = function() {
 
 const lesOlympiades = new Film('Les Olympiades', 'Jacques Audiard', 120, true);
 const trePiani = new Film('Tre Piani', 'Nanni Morreti', 105, false);
+
+const myObject = Object.create(Object.prototype);
