@@ -1,3 +1,5 @@
+let myMovies = [];
+
 function Film(title, director, duration, seen) {
     this.title = title,
     this.director = director,
@@ -12,6 +14,10 @@ Film.prototype.info = function() {
         return `${this.title}, directed by ${this.director}, ${this.duration} minutes long, already seen`;
 }
 };
+
+function addMovieToMyMovies(movie) {
+    myMovies.push(movie);
+}
 
 const lesOlympiades = new Film('Les Olympiades', 'Jacques Audiard', 120, true);
 const trePiani = new Film('Tre Piani', 'Nanni Morreti', 105, false);
