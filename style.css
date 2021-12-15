@@ -1,15 +1,49 @@
-/* html {
-    
-} */
-
 body {
     background-color: rgb(63, 129, 69);
     width: 100%;
 }
 
-.book-container {
+nav {
+    background-color: greenyellow;
+}
+
+nav > * {
+    width: 70%;
+    margin: 0px auto;
+}
+
+.form-and-movies-grid {
+    display: flex;
+}
+
+.user-form {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: left;
+}
+
+/* .user-form > label {
+
+} */
+
+.user-form > input {
+    height: 1.5rem;
+    margin-top: 10px;
+
+}
+
+.movies-container {
     background-color: rgb(10, 9, 94);
     width: 1024px;
     height: 100%;
     margin: 0 auto;
+    display: flex;
 }
+
+.movie-card {
+    margin: 10px;
+    padding: 10px;
+}
+

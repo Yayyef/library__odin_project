@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ma Cinéthèque</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="book-container">
-        
+    <nav>
+        <h1>Ma Cinéthèque</h1>
+        <section>Listez vos films, vus et à voir</section>
+    </nav>
+    <div class="form-and-movies-grid">
+        <div class="user-form">
+
+            <label for="userTitle">Titre</label>
+                <input type="text" value="Apocalypse Now" id="userTitle">
+            <label for="userDirector">Réalisateur</label>
+                <input type="text" value="Francis Ford Coppola" id="userDirector">
+            <label for="userDate">Date de sortie</label>
+                <input type="date" name="" id="userDate"> 
+            <label for="userDuration">Durée du film (en minutes)</label>
+                <input type="text" value="182" id="userDuration">
+            <label for="userSeen">Déja vu?</label>
+                <input type="checkbox" id="userSeen">
+
+            <button id="submitFilmButton">Créer une fiche de film</button>
+                
+        </div>
+        <div class="movies-container">
+            <!-- Ici sont générées les movie -->
+        </div>
     </div>
 </body>
 </html>
