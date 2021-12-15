@@ -1,3 +1,15 @@
+/* html {
+    
+} */
+
 body {
-    background-color: green;
+    background-color: rgb(63, 129, 69);
+    width: 100%;
+}
+
+.book-container {
+    background-color: rgb(10, 9, 94);
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
 }
