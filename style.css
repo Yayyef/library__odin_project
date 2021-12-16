@@ -3,16 +3,16 @@ body {
     width: 100%;
 }
 
-nav {
+header {
     background-color: greenyellow;
 }
 
-nav > * {
+header > * {
     width: 70%;
     margin: 0px auto;
 }
 
-.form-and-movies-grid {
+main {
     display: flex;
 }
 
@@ -45,5 +45,6 @@ nav > * {
 .movie-card {
     margin: 10px;
     padding: 10px;
+    color: white;
 }
 

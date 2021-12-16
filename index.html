@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma Cinéthèque</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <nav>
-        <h1>Ma Cinéthèque</h1>
-        <section>Listez vos films, vus et à voir</section>
-    </nav>
-    <div class="form-and-movies-grid">
+    <header>
+        <section>
+            <h1>Ma Cinéthèque</h1>
+            <p class="subtitle">Listez vos films, vus et à voir</p class="subtitle">
+        </section>
+    </header>
+    <main>
         <div class="user-form">
 
             <label for="userTitle">Titre</label>
@@ -31,8 +34,9 @@
                 
         </div>
         <div class="movies-container">
-            <!-- Ici sont générées les movie -->
+            <!-- Ici sont générés les fiches de film -->
         </div>
-    </div>
+    </main>
+
 </body>
 </html>
