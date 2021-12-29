@@ -1,3 +1,25 @@
+// Le constructeur d'objet qui sera utilisé et son prototype (pour économiser de la mémoire). Il faut créer un constructeur, lui attribuer un prototype, puis faire une copie de ce prototype avec Object.create() pour le prototype de mon constructeur. TORDU. Et probablement inutile dans ce cas. Il faudrait que d'autres constructeurs ou objets aient à hériter de MoviePrototype.
+function MoviePrototype() {
+}
+MoviePrototype.prototype.info = function() {
+    if (this.seen === false) {
+        return `${this.title}, directed by ${this.director}, ${this.duration} minutes long, not seen yet`;
+    } else if (this.seen === true) {
+        return `${this.title}, directed by ${this.director}, ${this.duration} minutes long, already seen`;
+}
+}
+MoviePrototype.prototype.toggleSeen = function() {
+    this.seen ? this.seen = false : this.seen = true;
+}
+function Movie(title, director, date, duration, seen) {
+    this.title = title,
+    this.director = director,
+    this.date = date,
+    this.duration = duration,
+    this.seen = seen
+}
+Movie.prototype = Object.create(MoviePrototype.prototype);
+
 let myMovies = [];
 const bookContainer = document.querySelector(".movies-container");
 const submitFilmButton = document.querySelector("#submitFilmButton");
@@ -6,21 +28,8 @@ const trePiani = new Movie('Tre Piani', 'Nanni Morreti', 2021, 105, false);
 myMovies.push(lesOlympiades);
 myMovies.push(trePiani);
 
-// Le constructeur d'objet qui sera utilisé et son prototype (pour économiser de la mémoire)
-function Movie(title, director, date, duration, seen) {
-    this.title = title,
-    this.director = director,
-    this.date = date,
-    this.duration = duration,
-    this.seen = seen
-}
-Movie.prototype.info = function() {
-    if (this.seen === false) {
-        return `${this.title}, directed by ${this.director}, ${this.duration} minutes long, not seen yet`;
-    } else if (this.seen === true) {
-        return `${this.title}, directed by ${this.director}, ${this.duration} minutes long, already seen`;
-}
-}
+// Il faudrait que j'essaye d'utiliser object.create.
+// const myObject = Object.create(Object.prototype);
 
 // Ajoute les films crées dans le tableau myMovies
 // function addMovieToMyMovies(movie) {
@@ -46,13 +55,11 @@ const cardCreation = (movie, index) => {
     const movieCard = document.createElement("div");
     movieCard.classList.add("movie-card");
 
-
     const movieTitle = document.createElement("h3");
     const movieDirector = document.createElement("h4");
     const movieDate = document.createElement("p");
     const movieDuration = document.createElement("p");
     const movieSeen = document.createElement("p");
-    
 
     movieTitle.textContent = movie.title;
     movieDirector.textContent = movie.director;
@@ -75,10 +82,20 @@ const cardCreation = (movie, index) => {
     });
     movieCard.appendChild(removeButton);
 
+    // Boutton pour toggle si on a vu ou non le film.
+    const seenButton = document.createElement("button");
+    seenButton.textContent = "J'ai vu le film";
+    seenButton.addEventListener("click", (e) => {
+        myMovies[e.target.parentElement.attributes["data-index"].value].toggleSeen();
+        console.log(myMovies[e.target.parentElement.attributes["data-index"].value]);
+        displayAllMovies();
+    });
+
     movieCard.appendChild(movieTitle);
     movieCard.appendChild(movieDirector);
     movieCard.appendChild(movieDate);
     movieCard.appendChild(movieDuration);
+    movieCard.appendChild(seenButton);
     movieCard.appendChild(movieSeen);   
 };
 
@@ -95,12 +112,10 @@ submitFilmButton.addEventListener("click", () => {
     
     removeMovieCards();
 
-    const userFilm = new Movie(userTitle, userDirector, userDate, userDuration, true);
+    const userFilm = new Movie(userTitle, userDirector, userDate, userDuration, false);
     myMovies.push(userFilm);
     displayAllMovies();
 
     // cardCreation(userFilm);
 });
 
-// Il faudrait que j'essaye d'utiliser object.create.
-// const myObject = Object.create(Object.prototype);
